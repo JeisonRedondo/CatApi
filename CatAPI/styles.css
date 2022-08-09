@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    
+}
+
+h1{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+img{
+    width: 100%;
+    
+}
+
+figure .img-class {
+    width: 150px;
+    height: 150px;
+    border-radius: 30%;
+}
