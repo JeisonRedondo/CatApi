@@ -12,14 +12,44 @@ body{
 }
 
 h1{
-    font-size: 20px;
+    padding: 20px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
+}
+
+.michis-title_section {
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+    margin: 20px;
+}
+
+.randomMichis{
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.btn-reload {
+    width: min-content;
+    margin: 20px;
 }
 
 img{
     width: 200px;
     height: 200px;
     border-radius: 20px;
+    margin: 20px;
     
+}
+
+.img-container_michis {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
 }

@@ -9,18 +9,45 @@
     <script src="./main.js"></script>
 </head>
 <body>
-    <h1>Gatitos Aleatorios</h1>
+    <h1>Michis App</h1>
 
-    <button onclick="loadImage()">Recarga</button>
+    <section class="randomMichis">
 
-    <figure class="img-class">
-        <img id="img1" alt="Foto Gatito Aleatoria" >
-    </figure>
-    <figure class="img-class">
-        <img id="img2" alt="Foto Gatito Aleatoria" >
-    </figure>
-    <figure class="img-class">
-        <img id="img3" alt="Foto Gatito Aleatoria" >
-    </figure>
+        <h2 class="michis-title_section">Michis Aleatorios</h2>
+
+        <picture class="img-container_michis">
+    
+            <article>
+                <img id="img1" alt="Foto Gatito Aleatoria" >
+                <button >Guardar michi en favoritos</button>
+            </article>
+       
+            <article>
+                <img id="img2" alt="Foto Gatito Aleatoria" >
+                <button >Guardar michi en favoritos</button>
+            </article>
+
+             <article>
+                <img id="img3" alt="Foto Gatito Aleatoria" >
+                <button >Guardar michi en favoritos</button>
+            </article>
+    
+        </picture>
+
+        <button onclick="loadImage()" class="btn-reload">Recarga</button>
+
+    </section>
+    
+
+    <section class="FavoritesMichis">
+
+        <h2 class="michis-title_section">Michis Favoritos</h2>
+
+        <article>
+            <img id="img4" alt="Foto Gatito Aleatoria" >
+            <button >Sacar al michi en favoritos</button>
+        </article>
+
+    </section>
 </body>
 </html>
