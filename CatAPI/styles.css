@@ -18,12 +18,8 @@ h1{
 }
 
 img{
-    width: 150px;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
     
 }
-
-/* .img-class {
-    width: 150px;
-    
-    
-} */

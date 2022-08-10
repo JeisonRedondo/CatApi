@@ -1,6 +1,6 @@
 console.log('Hello, World');
 
-const URL = 'https://api.thecatapi.com/v1/images/search?limit=3';
+const URL = 'https://api.thecatapi.com/v1/images/search?limit=3&api_key=0e67e603-210b-4a02-9582-778b82a47c62';
 
 const loadImage = async () => {
     const res = await fetch(URL);
