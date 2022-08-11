@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gatitos Aleatorios</title>
     <link rel="stylesheet" href="./styles.css">
-    <script src="./main.js"></script>
+    
 </head>
 <body>
+
     <h1>Michis App</h1>
+
+    <div id="Error"></div>
+    <!-- <img id="img-error"> -->
 
     <section class="randomMichis">
 
@@ -26,15 +30,10 @@
                 <img id="img2" alt="Foto Gatito Aleatoria" >
                 <button >Guardar michi en favoritos</button>
             </article>
-
-             <article>
-                <img id="img3" alt="Foto Gatito Aleatoria" >
-                <button >Guardar michi en favoritos</button>
-            </article>
     
         </picture>
 
-        <button onclick="loadImage()" class="btn-reload">Recarga</button>
+        <button onclick="loadRandomMichis()" class="btn-reload">Recarga</button>
 
     </section>
     
@@ -49,5 +48,6 @@
         </article>
 
     </section>
+    <script src="./main.js"></script>
 </body>
 </html>
