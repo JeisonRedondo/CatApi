@@ -2,6 +2,7 @@
 
 const API_URl_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=2';
 const API_URl_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
+const API_URl_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
 const API_URl_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`
 const API_ERROR_MICHIS = 'https://http.cat/'
 
@@ -16,7 +17,7 @@ const loadRandomMichis = async () => {
 
     if (res.status !== 200) {
         
-        spanError.innerHTML = `"Hubo un error: Error_${res.status},${data.message}`;
+        spanError.innerHTML = `Hubo un error: Error_${res.status},${data.message}`;
         spanError.insertAdjacentHTML(
             "beforeend",
             `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
@@ -49,13 +50,14 @@ const loadFavouriteMichis = async () => {
 
     if (res.status !== 200) {
         
-        spanError.innerHTML = `"Hubo un error: Error_${res.status},${data.message}`;
+        spanError.innerHTML = `Hubo un error: Error_${res.status},${data.message}`;
         spanError.insertAdjacentHTML(
             "beforeend",
             `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
         );
     }else {
         const section = document.getElementById('favouriteMichis')
+        // section.classList.add('main-section__images--michis');
         section.innerHTML= "";
 
         const h2 = document.createElement('h2');
@@ -72,11 +74,13 @@ const loadFavouriteMichis = async () => {
             img.src = michi.image.url;
             btn.appendChild(btnText);
             btn.onclick = () => deleteFavouriteMichi(michi.id);
+            article.classList.add('section-image__container--group')
             article.appendChild(img);
             article.appendChild(btn);
             section.appendChild(article);
             
         })
+        
     }
 };
 
@@ -100,7 +104,7 @@ const saveFavouriteMichi = async (id) => {
 
     if (res.status !== 200) {
         
-        spanError.innerHTML = `"Hubo un error: Error_${res.status},${data.message}`;
+        spanError.innerHTML = `Hubo un error: Error_${res.status},${data.message}`;
         spanError.insertAdjacentHTML(
             "beforeend",
             `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
@@ -133,6 +137,37 @@ const deleteFavouriteMichi= async (id) => {
     }
 }
 
+const uploadMichiPhoto = async () => {
+    const form = document.getElementById("uploadingForm")
+    const formData = new FormData(form);
+
+    console.log(formData.get('file'));
+
+    const res = await fetch(API_URl_UPLOAD,{
+        method: 'POST',
+        headers:{
+            // 'Content Type':'multipart/formdata',
+            'X-API-KEY':'0e67e603-210b-4a02-9582-778b82a47c62',
+        },
+        body:formData,
+    })
+
+    const data = await res.json();
+
+    if (res.status !== 201) {
+        
+        spanError.innerHTML = `Hubo un error: Error_${res.status},${data.message}`;
+        spanError.insertAdjacentHTML(
+            "beforeend",
+            `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
+        );
+    }else {
+        console.log('Foto de MICHI Subida')
+        console.log({data})
+        console.log(data.url)
+        saveFavouriteMichi(data.id)
+    }
+}
 loadRandomMichis();
 loadFavouriteMichis();
 
