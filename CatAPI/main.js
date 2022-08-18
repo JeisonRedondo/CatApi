@@ -72,9 +72,10 @@ const loadFavouriteMichis = async () => {
             const btnText = document.createTextNode('Sacar al michi de favoritos');
 
             img.src = michi.image.url;
+            btn.classList.add('section__btn--style');
             btn.appendChild(btnText);
             btn.onclick = () => deleteFavouriteMichi(michi.id);
-            article.classList.add('section-image__container--group')
+            article.classList.add('section-image__container--group');
             article.appendChild(img);
             article.appendChild(btn);
             section.appendChild(article);

@@ -42,15 +42,19 @@ h1{
 }
 
 .section-image__container--group {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin: 20px;
     
 }
 
-.btn-reload {
-    width: min-content;
-    margin: 20px;
+
+
+.section__btn--style {
+    position: absolute;
+    top: 30px;
+    right: 30px;
 }
 
 img{
