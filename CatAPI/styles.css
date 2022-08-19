@@ -24,6 +24,18 @@ h1{
     text-align: center;
 }
 
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    margin: 20px;
+    
+}
+
+.main {
+    margin: 30px;
+}
+
 .michis-title_section {
     text-align: left;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -38,7 +50,7 @@ h1{
     display: flex;
     align-items: left;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .section-image__container--group {
@@ -49,20 +61,36 @@ h1{
     
 }
 
-
-
 .section__btn--style {
+    font-size: 30px;
+    padding: 5px;
     position: absolute;
     top: 30px;
     right: 30px;
+    background: transparent;
+    border: 0;
+    border-radius: 50px;
 }
 
-img{
-    width: 200px;
-    height: 200px;
+
+
+.btn__class {
+    font-size: 18px;
+    font-weight: 600;
+    border: 1px solid ;
+    border-radius: 15px;
+    padding:10px;
+    background-color: rgb(183, 228, 228);
+}
+
+#uploadingMichi{
+    font-size: 20px;
+    background-color: blueviolet;
     border-radius: 20px;
-    margin: 20px;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 #img-error {
@@ -85,4 +113,13 @@ img{
     display: flex;
     justify-content: space-between;
     margin: 20px;
+}
+
+.section__btn--style:hover {
+    background-color: gold;
+    font-size: 40px;
+}
+
+.btn__class:hover {
+    background-color: blue;
 }

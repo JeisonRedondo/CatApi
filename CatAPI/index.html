@@ -15,7 +15,7 @@
     <div id="Error"></div>
     
 
-    <section >
+    <section class="main">
 
         <h2 class="michis-title_section">Michis Aleatorios</h2>
 
@@ -23,30 +23,30 @@
     
             <article class="section-image__container--group">
                 <img id="img1" alt="Foto Gatito Aleatoria" >
-                <button id="btn1" onclick="saveFavouriteMichi()" class="section__btn--style">Guardar michi en favoritos</button>
+                <button id="btn1" onclick="saveFavouriteMichi()" class="section__btn--style">👍</button>
             </article>
        
             <article class="section-image__container--group">
                 <img id="img2" alt="Foto Gatito Aleatoria" >
-                <button id="btn2" onclick="saveFavouriteMichi()" class="section__btn--style">Guardar michi en favoritos</button>
+                <button id="btn2" onclick="saveFavouriteMichi()" class="section__btn--style">👍</button>
             </article>
     
         </picture>
 
-        <button onclick="loadRandomMichis()" class="section__btn--style">Recarga</button>
+        <button onclick="loadRandomMichis()"  class="btn__class">Recarga</button>
 
     </section>
     
-    <section id="uploadingMichi">
+    <section id="uploadingMichi" >
 
         <h2>Sube la foto de tu michi</h2>
-
+        <img id="uploadImage" src="./descargaIcon.png">
         <form id="uploadingForm">
-            <input id="file" type="file" name="file">
-            <button type="button" onclick="uploadMichiPhoto()">Subir foto de michi</button>
+            <input id="file" type="file" name="file" class="btn__class">
+            <button type="button" onclick="uploadMichiPhoto()" class="btn__class">Subir foto de michi</button>
         </form>
 
-    </section>
+    </section class="main">
 
     <section  id="favouriteMichis" class="main-section__images--michis">
 

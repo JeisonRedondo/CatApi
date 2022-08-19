@@ -69,7 +69,7 @@ const loadFavouriteMichis = async () => {
             const article = document.createElement('article');
             const img = document.createElement('img');
             const btn = document.createElement('button');
-            const btnText = document.createTextNode('Sacar al michi de favoritos');
+            const btnText = document.createTextNode('👎');
 
             img.src = michi.image.url;
             btn.classList.add('section__btn--style');
@@ -141,6 +141,7 @@ const deleteFavouriteMichi= async (id) => {
 const uploadMichiPhoto = async () => {
     const form = document.getElementById("uploadingForm")
     const formData = new FormData(form);
+    const img = document.getElementById("uploadImage");
 
     console.log(formData.get('file'));
 
@@ -163,10 +164,17 @@ const uploadMichiPhoto = async () => {
             `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
         );
     }else {
+        
+        img.src = data.url;
         console.log('Foto de MICHI Subida')
         console.log({data})
         console.log(data.url)
         saveFavouriteMichi(data.id)
+
+        
+
+        
+        
     }
 }
 loadRandomMichis();
