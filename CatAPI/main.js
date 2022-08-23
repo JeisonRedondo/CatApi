@@ -50,7 +50,14 @@ const loadFavouriteMichis = async () => {
         );
     }else {
         
-        const imagesMichis = data.map(item => item.image);
+        const imagesMichis = data.map(item => {
+            const container = {};
+
+            container.url = item.image.url;
+            container.id = item.id;
+
+            return container;
+        });
         createMichis(imagesMichis, "favouriteMichis", '👎',deleteFavouriteMichi);
 
         
@@ -150,6 +157,7 @@ const uploadMichiPhoto = async () => {
         
     }
 }
+
 loadRandomMichis();
 loadFavouriteMichis();
 
