@@ -81,9 +81,11 @@ img{
     border-radius: 15px;
     padding:10px;
     background-color: rgb(183, 228, 228);
+    cursor: pointer;
 }
 
 #uploadingMichi{
+    width: min-content;
     font-size: 20px;
     background-color: blueviolet;
     border-radius: 20px;
@@ -122,4 +124,13 @@ img{
 
 .btn__class:hover {
     background-color: blue;
+}
+
+#file {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }

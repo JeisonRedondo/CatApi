@@ -1,6 +1,6 @@
 
+const API_URL = 'https://api.thecatapi.com/v1/'
 
-const API_URl_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=2';
 const API_URl_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
 const API_URl_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
 const API_URl_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`
@@ -9,7 +9,7 @@ const API_ERROR_MICHIS = 'https://http.cat/'
 const spanError = document.getElementById("Error");
 
 const loadRandomMichis = async () => {
-    const res = await fetch(API_URl_RANDOM);
+    const res = await fetch(`${API_URL}images/search?limit=8`);
     const data = await res.json();
 
     console.log('Random');
@@ -23,21 +23,14 @@ const loadRandomMichis = async () => {
             `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
         );
     }else {
-    const img1 = document.getElementById('img1');
-    const img2 = document.getElementById('img2');
-    const btn1 = document.getElementById('btn1');
-    const btn2 = document.getElementById('btn2');
-     
-    img1.src = data[0].url;
-    img2.src = data[1].url;
+    
+    createMichis(data, "randomMichis", '👍',saveFavouriteMichi);
 
-    btn1.onclick = () => saveFavouriteMichi(data[0].id);
-    btn2.onclick = () => saveFavouriteMichi(data[1].id);
     }
 };
 
 const loadFavouriteMichis = async () => {
-    const res = await fetch(API_URl_FAVORITES,{
+    const res = await fetch(`${API_URL}favourites`,{
         method:'GET',
         headers: {
             'X-API-KEY':'0e67e603-210b-4a02-9582-778b82a47c62',
@@ -56,37 +49,16 @@ const loadFavouriteMichis = async () => {
             `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
         );
     }else {
-        const section = document.getElementById('favouriteMichis')
-        // section.classList.add('main-section__images--michis');
-        section.innerHTML= "";
+        
+        const imagesMichis = data.map(item => item.image);
+        createMichis(imagesMichis, "favouriteMichis", '👎',deleteFavouriteMichi);
 
-        const h2 = document.createElement('h2');
-        const h2Text = document.createTextNode('Michis Favoritos');
-        h2.appendChild(h2Text);
-
-        data.forEach(michi => {
-            
-            const article = document.createElement('article');
-            const img = document.createElement('img');
-            const btn = document.createElement('button');
-            const btnText = document.createTextNode('👎');
-
-            img.src = michi.image.url;
-            btn.classList.add('section__btn--style');
-            btn.appendChild(btnText);
-            btn.onclick = () => deleteFavouriteMichi(michi.id);
-            article.classList.add('section-image__container--group');
-            article.appendChild(img);
-            article.appendChild(btn);
-            section.appendChild(article);
-            
-        })
         
     }
 };
 
 const saveFavouriteMichi = async (id) => {
-    const res = await fetch(API_URl_FAVORITES,{
+    const res = await fetch(`${API_URL}favourites`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -120,6 +92,7 @@ const deleteFavouriteMichi= async (id) => {
     const res = await fetch(API_URl_FAVORITES_DELETE(id),{
         method: 'DELETE',
         headers:{
+            'Content-Type': 'application/json',
             'X-API-KEY':'0e67e603-210b-4a02-9582-778b82a47c62',
         }
     });
@@ -127,7 +100,7 @@ const deleteFavouriteMichi= async (id) => {
 
     if (res.status !== 200) {
         
-        spanError.innerHTML = `"Hubo un error: Error_${res.status},${data.message}`;
+        spanError.innerHTML = `Hubo un error: Error_${res.status},${data.message}`;
         spanError.insertAdjacentHTML(
             "beforeend",
             `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
@@ -180,3 +153,27 @@ const uploadMichiPhoto = async () => {
 loadRandomMichis();
 loadFavouriteMichis();
 
+async function createMichis(michisData, sectionId, messsageBtn, btnFunction) {
+
+    const section = document.getElementById(sectionId)
+    section.innerHTML= "";
+
+    
+    michisData.forEach(michi => {
+        
+        const article = document.createElement('article');
+        const img = document.createElement('img');
+        const btn = document.createElement('button');
+        const btnText = document.createTextNode(messsageBtn);
+
+        img.src = michi.url;
+        btn.classList.add('section__btn--style');
+        btn.appendChild(btnText);
+        btn.onclick = () => btnFunction(michi.id);
+        article.classList.add('section-image__container--group');
+        article.appendChild(img);
+        article.appendChild(btn);
+        section.appendChild(article);
+        
+    })
+}
