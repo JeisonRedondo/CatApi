@@ -1,15 +1,14 @@
 
 const API_URL = 'https://api.thecatapi.com/v1/'
 
-const API_URl_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
 const API_URl_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
-const API_URl_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`
 const API_ERROR_MICHIS = 'https://http.cat/'
 
 const spanError = document.getElementById("Error");
 
 const loadRandomMichis = async () => {
-    const res = await fetch(`${API_URL}images/search?limit=8`);
+    const RANDOM_MICHIS = 'images/search?limit=8';
+    const res = await fetch(`${API_URL}${RANDOM_MICHIS}`);
     const data = await res.json();
 
     console.log('Random');
@@ -30,6 +29,7 @@ const loadRandomMichis = async () => {
 };
 
 const loadFavouriteMichis = async () => {
+    
     const res = await fetch(`${API_URL}favourites`,{
         method:'GET',
         headers: {
@@ -96,7 +96,7 @@ const saveFavouriteMichi = async (id) => {
 };
 
 const deleteFavouriteMichi= async (id) => {
-    const res = await fetch(API_URl_FAVORITES_DELETE(id),{
+    const res = await fetch(`${API_URL}favourites/${id}`,{
         method: 'DELETE',
         headers:{
             'Content-Type': 'application/json',
@@ -119,13 +119,14 @@ const deleteFavouriteMichi= async (id) => {
 }
 
 const uploadMichiPhoto = async () => {
+    const UPLOAD = 'images/upload';
     const form = document.getElementById("uploadingForm")
     const formData = new FormData(form);
     const img = document.getElementById("uploadImage");
 
     console.log(formData.get('file'));
 
-    const res = await fetch(API_URl_UPLOAD,{
+    const res = await fetch(`${API_URL}${UPLOAD}`,{
         method: 'POST',
         headers:{
             // 'Content Type':'multipart/formdata',
@@ -151,11 +152,11 @@ const uploadMichiPhoto = async () => {
         console.log(data.url)
         saveFavouriteMichi(data.id)
 
-        
-
-        
+     
         
     }
+
+    
 }
 
 loadRandomMichis();
