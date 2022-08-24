@@ -124,12 +124,14 @@ const uploadMichiPhoto = async () => {
     const formData = new FormData(form);
     const img = document.getElementById("uploadImage");
 
-    console.log(formData.get('file'));
+    console.log(formData.get("file"));
 
-    const res = await fetch(`${API_URL}${UPLOAD}`,{
+    // `${API_URL}${UPLOAD}`
+
+    const res = await fetch(API_URl_UPLOAD,{
         method: 'POST',
         headers:{
-            // 'Content Type':'multipart/formdata',
+            // 'Content Type':'multipart/form-data',
             'X-API-KEY':'0e67e603-210b-4a02-9582-778b82a47c62',
         },
         body:formData,
@@ -152,8 +154,6 @@ const uploadMichiPhoto = async () => {
         console.log(data.url)
         saveFavouriteMichi(data.id)
 
-     
-        
     }
 
     
@@ -186,3 +186,62 @@ async function createMichis(michisData, sectionId, messsageBtn, btnFunction) {
         
     })
 }
+
+// ------------------------------------------------------------------------------------
+
+
+
+const selectFile = function() {
+	
+	let regex = /[^\\]+$/
+	
+	this.choose,
+	this.selected
+	
+	this.msg = str => {
+		let prefix = '[selectFile.js]\n\nError: '
+		return alert(prefix+str)
+	}
+		
+	this.check = () => {
+		if (this.choose && this.selected != null) {
+            
+
+			let choose = document.getElementById(this.choose),
+				selected = document.getElementById(this.selected)
+			    choose.addEventListener('change',() => {
+				if (choose.value != '') { 
+					selected.innerHTML = choose.value.match(regex); 
+                    choose.onclick = () => uploadMichiPhoto();
+                    
+
+				}
+			})
+		} else {
+			this.msg('Targets not set.')
+		}
+	}
+	
+	selectFile.prototype.targets = (trigger, filetext) => {
+		this.choose = trigger
+		this.selected = filetext
+	}
+	
+	selectFile.prototype.simulate = () => {
+		if (this.choose != null) {
+			let choose = document.getElementById(this.choose)
+			if (typeof choose != 'undefined') {
+				choose.click()
+				this.check()
+			} else {
+				this.msg('Could not find element '+this.choose)
+			}
+		} else {
+			this.msg('Targets not set.')
+		}
+	}	
+	
+};
+
+var getFile = new selectFile;
+getFile.targets('file', 'selected');

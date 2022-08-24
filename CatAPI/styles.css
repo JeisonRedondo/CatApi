@@ -43,6 +43,18 @@ img{
     font-weight: 200;
     margin: 20px;
 }
+
+.uploading__michi--label {
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: rgb(2, 14, 18);
+    /* border: black 1px solid; */
+    border-radius: 20px;
+    /* background-color: rgb(227, 28, 28); */
+    text-align: center;
+}
 .main-section__images--michis {
     width: 100%;
     margin: 20px;
@@ -95,6 +107,11 @@ img{
     padding: 20px;
 }
 
+#uploadingForm {
+    display: flex;
+    flex-direction: column;
+}
+
 #img-error {
     width: 100%;
     height: 100%;
@@ -126,8 +143,8 @@ img{
     background-color: blue;
 }
 
-#file {
-    width: 0.1px;
+.inputfile {
+	width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
 	overflow: hidden;
