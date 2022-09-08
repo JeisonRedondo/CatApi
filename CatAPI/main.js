@@ -6,7 +6,7 @@ const API_ERROR_MICHIS = 'https://http.cat/'
 
 const spanError = document.getElementById("Error");
 
-const loadRandomMichis = async () => {
+const loadRandomMichis = async () => { 
     const RANDOM_MICHIS = 'images/search?limit=8';
     const res = await fetch(`${API_URL}${RANDOM_MICHIS}`);
     const data = await res.json();
@@ -119,6 +119,7 @@ const deleteFavouriteMichi= async (id) => {
 }
 
 const uploadMichiPhoto = async () => {
+    
     const UPLOAD = 'images/upload';
     const form = document.getElementById("uploadingForm")
     const formData = new FormData(form);
@@ -126,12 +127,9 @@ const uploadMichiPhoto = async () => {
 
     console.log(formData.get("file"));
 
-    // `${API_URL}${UPLOAD}`
-
-    const res = await fetch(API_URl_UPLOAD,{
+    const res = await fetch(`${API_URL}${UPLOAD}`,{
         method: 'POST',
         headers:{
-            // 'Content Type':'multipart/form-data',
             'X-API-KEY':'0e67e603-210b-4a02-9582-778b82a47c62',
         },
         body:formData,
@@ -146,6 +144,7 @@ const uploadMichiPhoto = async () => {
             "beforeend",
             `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
         );
+
     }else {
         
         img.src = data.url;
@@ -156,8 +155,7 @@ const uploadMichiPhoto = async () => {
 
     }
 
-    
-}
+};
 
 loadRandomMichis();
 loadFavouriteMichis();
@@ -190,8 +188,7 @@ async function createMichis(michisData, sectionId, messsageBtn, btnFunction) {
 // ------------------------------------------------------------------------------------
 
 
-
-const selectFile = function() {
+const selectFile = function () {
 	
 	let regex = /[^\\]+$/
 	
