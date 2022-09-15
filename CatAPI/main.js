@@ -22,7 +22,7 @@ const loadRandomMichis = async () => {
             `<img src =${API_ERROR_MICHIS}${res.status} id="img-error">`
         );
     }else {
-    
+    // empezando a arreglar el centrado de el icono
     createMichis(data, "randomMichis", '👍',saveFavouriteMichi);
 
     }

@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gatitos Aleatorios</title>
-    <link rel="stylesheet" href="./styles.css"> 
+    <link rel="stylesheet" href="./styles.css">
     <script src="./main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <h1>Michis App</h1>
 
     <div id="Error"></div>
-    
+
 
     <section class="main">
 
         <h2 class="michis-title_section">Michis Aleatorios</h2>
 
         <picture class="main-section__images--michis" id="randomMichis">
-    
+
         </picture>
 
-        <button onclick="loadRandomMichis()"  class="btn__class">Recarga</button>
+        <button onclick="loadRandomMichis()" class="btn__class">Recarga</button>
 
     </section>
-    
-    <section id="uploadingMichi" >
+
+    <section id="uploadingMichi">
 
         <h2>Sube la foto de tu michi</h2>
         <img id="uploadImage" src="./descargaIcon.png">
@@ -38,22 +43,23 @@
             <input type=button onClick=getFile.simulate() value="Añade tus michis" class="btn__class">
             <label id=selected class="uploading__michi--label">Nothing selected</label>
             <button type="button" onclick="uploadMichiPhoto()" class="btn__class">Subir foto de michi</button>
-            
+
         </form>
 
-    </section >
+    </section>
 
-    <section  class="main">
+    <section class="main">
 
-        <h2 class="michis-title_section" >Michis Favoritos</h2>
+        <h2 class="michis-title_section">Michis Favoritos</h2>
 
         <picture id="favouriteMichis" class="main-section__images--michis">
 
         </picture>
-        
+
     </section>
 
-    
-    
+
+
 </body>
+
 </html>
