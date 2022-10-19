@@ -162,7 +162,7 @@ loadFavouriteMichis();
 
 async function createMichis(michisData, sectionId, messsageBtn, btnFunction) {
 
-    const section = document.getElementById(sectionId)
+    const section = document.getElementById(sectionId);
     section.innerHTML= "";
 
     
@@ -183,6 +183,11 @@ async function createMichis(michisData, sectionId, messsageBtn, btnFunction) {
         section.appendChild(article);
         
     })
+}
+
+const onChangeButton = async () => {
+    const btn = document.getElementById(buttonup);
+    const btnText = document.createTextNode("Aqui estamos");
 }
 
 // ------------------------------------------------------------------------------------
@@ -210,8 +215,6 @@ const selectFile = function () {
 				if (choose.value != '') { 
 					selected.innerHTML = choose.value.match(regex); 
                     choose.onclick = () => uploadMichiPhoto();
-                    
-
 				}
 			})
 		} else {
@@ -227,9 +230,11 @@ const selectFile = function () {
 	selectFile.prototype.simulate = () => {
 		if (this.choose != null) {
 			let choose = document.getElementById(this.choose)
-			if (typeof choose != 'undefined') {
+            if (typeof choose != 'undefined') {
+
 				choose.click()
-				this.check()
+                this.check()
+                
 			} else {
 				this.msg('Could not find element '+this.choose)
 			}

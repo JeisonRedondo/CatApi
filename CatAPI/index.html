@@ -19,13 +19,11 @@
 
     <div id="Error"></div>
 
-
     <section class="main">
 
         <h2 class="michis-title_section">Michis Aleatorios</h2>
 
         <picture class="main-section__images--michis" id="randomMichis">
-
         </picture>
 
         <button onclick="loadRandomMichis()" class="btn__class">Recarga</button>
@@ -33,18 +31,23 @@
     </section>
 
     <section id="uploadingMichi">
+        <h2 class="uploadingMichi-title">Sube la foto de tu michi</h2>
+        <div class="uploadingMichi--containerimage">
+            <img id="uploadImage" src="./descargaIcon.png" alt="dowload-icon">
 
-        <h2>Sube la foto de tu michi</h2>
-        <img id="uploadImage" src="./descargaIcon.png">
+            <form id="uploadingForm">
+                <input id="file" type="file" name="file" class="inputfile">
+                <label id=selected class="uploading__michi--label">Nothing selected</label>
+                <input type=button onClick=getFile.simulate() value="Añade tus michis" class="btn__class" id="buttonup">
+                <button type="button" onclick="uploadMichiPhoto()" class="btn__class " id="buttonUpload" onchange="">Subir
+                    foto de
+                    michi</button>
+            
+            </form>
+        </div>
 
-        <form id="uploadingForm">
 
-            <input id="file" type="file" name="file" class="inputfile">
-            <input type=button onClick=getFile.simulate() value="Añade tus michis" class="btn__class">
-            <label id=selected class="uploading__michi--label">Nothing selected</label>
-            <button type="button" onclick="uploadMichiPhoto()" class="btn__class">Subir foto de michi</button>
-
-        </form>
+        
 
     </section>
 
