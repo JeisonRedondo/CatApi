@@ -1,0 +1,19 @@
+{
+  "name": "curso-de-consumo-de-api-rest",
+  "version": "1.0.0",
+  "description": "An aplication to practice consuming API with javascriopt",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeisonRedondo/Curso-de-Consumo-de-API-Rest.git"
+  },
+  "author": "Jeison David Redondo Laiton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JeisonRedondo/Curso-de-Consumo-de-API-Rest/issues"
+  },
+  "homepage": "https://github.com/JeisonRedondo/Curso-de-Consumo-de-API-Rest#readme"
+}
